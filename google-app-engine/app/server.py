@@ -29,8 +29,8 @@ async def setup_learner():
     data_bunch = ImageDataBunch.single_from_classes(path, classes, size=(100,180)).normalize(imagenet_stats)
     #data_bunch = ImageDataBunch.single_from_classes(path, classes,
         #ds_tfms=get_transforms(), size=(100,180).normalize(imagenet_stats)
-    learn = create_cnn(data_bunch, models.resnet50, pretrained=False)
-    #learn = cnn_learner(data_bunch, models.resnet50, pretrained=False)
+    #learn = create_cnn(data_bunch, models.resnet50, pretrained=False)
+    learn = cnn_learner(data_bunch, models.resnet50, pretrained=False)
     learn.load(model_file_name)
     return learn
 
